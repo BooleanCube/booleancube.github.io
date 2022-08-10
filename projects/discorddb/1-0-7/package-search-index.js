@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"discorddb"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-main.html"},{"l":"discorddb"}];updateSearchResults();
