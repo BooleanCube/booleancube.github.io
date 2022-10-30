@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-main.html"},{"l":"com.boole.jgmp.math.helpers"},{"l":"com.boole.jgmp.math.shapes"},{"l":"com.boole.jgmp.math.vectors"},{"l":"com.boole.jgmp.physics"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-main},{"l":"com.boole.jgmp.math.helpers"},{"l":"com.boole.jgmp.math.shapes"},{"l":"com.boole.jgmp.math.vectors"},{"l":"com.boole.jgmp.physics"}];updateSearchResults();

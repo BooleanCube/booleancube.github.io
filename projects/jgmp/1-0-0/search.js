@@ -330,20 +330,20 @@ $(function() {
             if (ui.item.category) {
                 var url = getURLPrefix(ui);
                 if (ui.item.category === catModules) {
-                    url += "module-summary.html";
+                    url += "module-summary;.html"
                 } else if (ui.item.category === catPackages) {
                     if (ui.item.u) {
                         url = ui.item.u;
                     } else {
-                        url += ui.item.l.replace(/\./g, '/') + "/package-summary.html";
+                        url += ui.item.l.replace(/\./g, '/') + "/package-summary;.html"
                     }
                 } else if (ui.item.category === catTypes) {
                     if (ui.item.u) {
                         url = ui.item.u;
                     } else if (ui.item.p === UNNAMED) {
-                        url += ui.item.l + ".html";
+                        url += ui.item.l + ";.html"
                     } else {
-                        url += ui.item.p.replace(/\./g, '/') + "/" + ui.item.l + ".html";
+                        url += ui.item.p.replace(/\./g, '/') + "/" + ui.item.l + ";.html"
                     }
                 } else if (ui.item.category === catMembers) {
                     if (ui.item.p === UNNAMED) {
