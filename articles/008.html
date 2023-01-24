@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta content="BooleanCube Article #008" property="og:title" />
+    <meta content="Try to solve this simple yet impossible problem. The collatz conjecture is a very famous math problem that many ingenious mathematic minds have been stumped on. The problem has gone unsolved for over 8 decades. Can you solve it?" property="og:description" />
+    <meta content="../articles/008" property="og:url" />
+    <meta content="../assets/images/articles/collatz.jpg" property="og:image" />
+    <meta content="#4D4C7D" data-react-helmet="true" name="theme-color" />
+
+
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="description" name="description">
+    <meta name="google" content="notranslate" />
+
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-icon-180x180.png">
+    <link rel="icon" href="../assets/favicon.png">
+
+    <title>Article #008</title>
+
+    <link href="../main3f6.css" rel="stylesheet">
+
+</head>
+
+<body class="">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+
+<header>
+    <nav class="navbar  navbar-fixed-top navbar-default" style="background-color: #624F82">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav ">
+                    <li><a href="./" title="">01 : Home</a></li>
+                    <li><a href="./projects" title="">02 : Projects</a></li>
+                    <li><a href="./articles" title="">03 : Articles</a></li>
+                    <li><a href="./about" title="">04 : About me</a></li>
+                    <li><a href="./socials" title="">05 : Socials</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="section-container">
+    <div class="container">
+
+        <br><br>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-container-spacer text-center">
+                    <h1 class="h2">Article #008: Collatz Conjecture</h1>
+                    <h4>Published: 01/21/2023</h4>
+                </div>
+
+                <div class="row">
+
+                    All of the source code for the conducted research can be found in <a href="https://github.com/BooleanCube/collatz-conjecture">BooleanCube/collatz-conjecture</a>
+
+                    <br><br>
+                    <h3 id="collatz-conjecture">Collatz Conjecture</h3>
+                    <p>The simple piecewise function, caused such large commotion and has gone unsolved for over 8 decades. The simple 3x + 1 problem was rumored to be a Soviet trap designed to slow down American mathematics and science during the space race between the two nations. It was proven ot be effective because even after 8 decades, mathematicians are still working towards the problem by writing scripts to test numbers and catch any edge cases which break the conjecture.</p>
+                    <p>The piecewise function for the 3x+1 problem looks like this: <br>
+                        <img src="https://user-images.githubusercontent.com/47650058/213839714-65a8a625-9bfb-4924-92df-64a67f2875a9.png" alt="image"> <br><br>
+                        <em>If x is even, <code>f(x) = x/2</code>, but if x is odd, <code>f(x) = 3x+1</code>. This function is infinitely recursed upon to form a sequence of numbers.</em></p>
+                    <p><em>For Example: <br>
+                        f(3) = 10 -&gt; <br>
+                        f(10) = 5 -&gt; <br>
+                        f(5) = 16 -&gt; <br>
+                        f(16) = 8 -&gt; <br>
+                        f(8) = 4 -&gt; <br>
+                        f(4) = 2 -&gt; <br>
+                        f(2) = 1 -&gt; <br>
+                        f(1) = 4 -&gt; <br>
+                        ...this then falls into a never-ending loop of <code>4 - 2 - 1</code></em></p>
+
+                    <br>
+                    <h3 id="definitions">Definitions</h3>
+                    <p>Dropping Time / Delay = Amount of steps to reach 1 from n in the sequence. <br>
+                        Glide = Amount of steps to reach a number stricly less than n in the sequence. <br></p>
+                    <p>Convergent Sequence = The sequences reaches 1 eventually. <br>
+                        Divergent Sequence = The sequence infinitely increases. <br>
+                        Cyclic Sequence = The sequence never reaches 1 nor is it increasing towards infinity. <br></p>
+
+                    <br>
+                    <h3 id="operations">Operations</h3>
+                    <p><code>&amp; (Bitwise AND Operation)</code> = Performs AND Operation over the binary expression of 2 base-10 integers. (<code>101001 &amp; 1 = 1</code>) <br>
+                        <code>&gt;&gt; (Bitwise Right Shift Operation)</code> = Right shifts the binary expression of a base-10 integer. (<code>10110 &gt;&gt; 2 = 101</code>) <br>
+                        <code>n &amp; 1</code> =&gt; Determines whether n is even or odd. If <code>n&amp;1 = 0</code>, n is even, but if <code>n&amp;1 = 1</code>, n is odd. <br>
+                        <code>n &gt;&gt; 1</code> =&gt; Basically divides n by 2. By removing the last digit in the binary expression, all bits were shifted down by 1 and divided the value of each bit by 2. This divides the value of the whole number by 2.</p>
+                    <p><em>The main reason I used these operations rather than traditional and conventional operations was for faster runtime speeds.</em></p>
+
+
+                    <br>
+                    <h3 id="conjecture-verification">Conjecture Verification</h3>
+                    <p>The Collatz conjecture states that the orbit of every number under function f eventually reaches 1. This has been proven to be true for the first 2^68 whole numbers after computational testing and verification. Despite being a large number, this covers almost nothing on the real number line and it is not sufficient to prove the conjecture entirely.</p>
+                    <p>I have written some scripts for Collatz Conjecture Verification in Python3 and C++ to test some numbers on my own.</p>
+                    <p><code>conjecture_verification.py</code> and <code>conjectureVerification.cpp</code> is just optimized brute-forcing towards the problem with a little bit of Dynamic Programming involved since we use the dropping time/delay (<em>amount of steps to reach 1 from n</em>) of previous values to find the dropping time of our current value. For Example:
+                        Lets say D(n) = the dropping time for the value of n. <br>
+                        When we are calculating for D(4), we can find the next number in the sequence which is <code>n=2</code>. If D(2) has already been calculated, we can correctly say that D(4) is equal to <code>D(2) + C</code>, <code>C</code> being the amount of steps to get from n to that already calculated value.</p>
+                    <p><code>convergence_verification.py</code> uses a much more optimized algorithm which only verifies whether numbers are convergent. This removes the necessity to calculate each number&#39;s dropping time. The algorithm also uses sieves (sliding windows) to check smaller ranges over time and build a list of numbers with abnormally large glide values instead of checking the dropping times of all numbers in the sieve. With the threshold limit of 2^8, and a sieve size of 2^20, the convergence algorithm was able to successfully verifiy 2^22 numbers in <code>3.02</code> seconds with normal Python 3.10 compilers. Using this algorithm with C++ or PyPy3 compilers could reduce the runtime significantly.</p>
+
+                    <br>
+                    <h3 id="graphing-visualizations">Graphing Visualizations</h3>
+                    <p><code>benfords_law.py</code> attempts to grab all the frequencies of the first digits in the step numbers and adds them to a histogram. For the first 100000 numbers, if you track the frequencies of the first digits of numbers in each step and draw a histogram we see a unique shape. 1 being the most frequent and 9 being the least frequent and there&#39;s an exponential curve in between. This curvature is more commonly known as Benford&#39;s Law and can be found in many use cases in our daily lives. <em>Sorry for the weird formatting! I couldn&#39;t figure out how to fix it...</em> <br>
+                        <img src="https://user-images.githubusercontent.com/47650058/206950303-edd5a2ba-06e4-458f-ab60-fcc2d77a09d0.png" alt="image"> <br></p>
+                    <p><code>delay_graph.py</code> graphs the relation between n (x-axis) and n&#39;s delay (y-axis). This relationship creates a weird graph which has no distinctive shape and we can&#39;t express their relation with just 1 simple math expression because of it&#39;s complexity. <br>
+                        <img src="https://user-images.githubusercontent.com/47650058/207048613-27a3a445-303c-4211-9a0e-596b62153d00.png" alt="image"></p>
+                    <p><code>glide_graph.py</code> graphs the relation between n (x-axis) and n&#39;s glide (y-axis). This relationship shows a very frequent pattern of occuring between powers of 2. A glide of 1 shows up for every even number since it&#39;s first move returns a step that is lower than itself, so it occurs every 2^1. Similarly, a glide value of 3 shows up in a pattern of every 2^2. A glide value of 6 shows up in a pattern that occurs every 2^4 and this pattern continues on forever with the glide values. <br>
+                        <img src="https://user-images.githubusercontent.com/47650058/207049744-2e985e6e-e2a3-4d9f-be53-3e918eca870d.png" alt="image"></p>
+
+                    <br>
+                    <h3 id="glide-patterns">Glide Patterns</h3>
+                    <p>We notice the pattern in <code>glide_graph.py</code> script but the steps in the glide seem almost random. It jumps from 1 to 3 to 6 to 8 to 11 and so on. So, I decided to create a table of every glide value of n (within a range of 0-10000) in order to find any patterns with the glide values. So, I recursed through all numbers in the range and added their glide values to a set (to remove duplicates). After adding all glide values to a set, I sorted the set and indexed every glide values from 1-10000. I found a noticeable pattern in the sorted set of glide values lying within the differences between each glide. The differences between each glide formed a <code>2-3-2-3-2-3-3-2-3-2-3-3</code> pattern which is also commonly known as a 12-layer octave pattern (found in piano keys). This proves that all glide values must be finite. For a second, you might think &quot;the conjecture hasn&#39;t been proven because even though all glide values are finite the glide step could be divergent.&quot; But in fact, that is incorrect because if the number at the glide step is divergent, then the glide for that number is infinite which can be proven to be false. If this does actually prove that real numbers can&#39;t be divergent, there is still the possibility of a number being cyclic so this doesn&#39;t prove the collatz conjecture. The glide sequence has also been compiled down to this single function: <code>f(n+1) = floor(1 + n + n*log(3)/log(2))</code></p>
+
+                    <br>
+                    <h3 id="calculator">Calculator</h3>
+                    <p>If you want to test numbers of your own quickly, the <code>collatz_calculator.py</code> script is what you are looking for. You can calculate and measure information about any number (as large as you want) rapidly. Given a number through input, it will calculate the numbers, delay, glide, residue, strength, level, shape of its path, etc. <br>
+                        <em>The number is most likely divergent if the calculator takes more than 3 seconds to measure all parameters for a number.</em> <br>
+                        <img src="https://user-images.githubusercontent.com/47650058/207081206-84279d2d-543f-4943-b096-f5796f34c024.png" alt="image"></p>
+
+                    <br>
+                    <h3 id="terras-theorem">Terras Theorem</h3>
+                    <p><strong>Statement</strong>: Let M be a positive integer. Let D(M) be the fraction of numbers &lt; M that do not have finite stopping time. Then the limit of D(M) for M → ∞ is equal to 0. <br>
+                        Essentially, the Terras Theorem states that the Delay Record as n approaches infinity decreases towards 0.
+                        <code>terras_theorem.py</code> returns a number&#39;s glide value and the parity vector of its stepping sequence. You can then check these with the <a href="http://www.ericr.nl/wondrous/delrecs.html">Delay Records Table</a> that has already been compiled for large numbers and find the Delay Record.</p>
+
+                    <br>
+                    <h3 id="arithmetic-mean">Arithmetic Mean</h3>
+                    <p><code>arithmetic_mean.py</code> generates all points for each step in the number sequence from n with the x-axis being the step count and the y-axis being the value of the number in the sequence at that step count. <br>
+                        For example, if <code>n=4</code> the points generated would be: <code>(1,4), (2,2), (3,1)</code> <br>
+                        With these coordinates, we would like to find the average amount of decrease or increase between each step that is taken in the sequence to see if we can prove that every number is bound to decrease. To find the average amount of increase/decrease between each step, we draw a line of best fit for all coordinates in each step and then find the slope of that line. We have to find the slope of this line for multiple numbers to find the average over all values. For the first 10000 natural numbers, the average amount of decrease is calculated to be roughly about <code>-0.13792251144898038</code></p>
+
+                    <br><br>
+                    <h3 id="hypothesis">Odd Number Analysis Patterns</h3>
+                    <p>I was testing the odd numbers to see whether the majority of odd numbers when multiplied by 3 and added by 1 result in even numbers with more than one
+                    prime factors of 2. If an even number has more than one prime factor of 2, then it is divisible by 2 more than once making the number less. Let's name
+                    such even numbers as <code>splitting numbers</code>. As I was going through all odd numbers from 1, I found a pattern of numbers that produce splitting
+                    numbers when applied into the function. Starting from 1, every other odd number produces a splitting even number.<br>
+                    Sequence of odd numbers that produce splitting even numbers: 1, 5, 9, 13, 17, 19, 21, 25, 29, 33, 37...<br>
+                    <code>1 goes to 4-2-1</code>, <code>5 goes to 16-4-2-1</code>, <code>9 goes to 28-14-7</code>, but <code>7 goes to 22-11 (only divides once)</code><br>
+                    So, there are an even number of odd numbers that produce splitting even numbers and odd numbers that don't. However, some odd numbers produce very
+                    large splitting numbers (i.e. have multiple prime factors of 2). Powers of 2 are the biggest of splitting even numbers because they are built only of
+                    prime factors of 2 and will take you down to 1 in one clean sweep. This shows that some odd numbers produce large splitting numbers and this means the
+                    general trend is downwards providing strong evidence that it might always reach one. But this still doesn't prove that divergent shapes can't occur.
+                    "What if I keep finding odd numbers that don't produce splitting numbers?" That means the trend for that number is indeed upwards.</p>
+
+                    <br><br>
+                    <h3 id="installation">Install</h3>
+                    <p>Some scripts such as <code>delay_graph.py</code>, <code>glide_graph.py</code> and <code>benfords_law.py</code> use the matplotlib package for the graphing user interface which is very useful and simple to use.</p>
+                    <p>To be able to use the <code>matplotlib</code> library with the python scripts, you have to install the package. This can be done through a package installer with the <code>matplotlib</code> package available like pip. Learn how to install a stable version of <a href="https://pip.pypa.io/en/stable/installation/">pip</a>. <br>
+                        You can run either of the following commands to install the <code>matplotlib</code> package onto your virtual environment (venv): <br></p>
+                    <pre>
+                        <code class="lang-console">
+    $ pip <span class="hljs-keyword">install</span> matplotlib
+    $ python -m pip <span class="hljs-keyword">install</span> matplotlib
+    $ python3 -m pip <span class="hljs-keyword">install</span> matplotlib
+                            </code></pre>
+                    <p>If you are using a Python version that comes with your Linux distribution, you can also install the <code>matplotlib</code> package via your distribution&#39;s package manager.</p>
+                    <pre>
+                        <code class="lang-console">
+    <span class="hljs-variable">$ </span>sudo apt-get install python3-matplotlib  <span class="hljs-comment"># Debian / Ubuntu</span>
+    <span class="hljs-variable">$ </span>sudo dnf install python3-matplotlib      <span class="hljs-comment"># Fedora</span>
+    <span class="hljs-variable">$ </span>sudo yum install python3-matplotlib      <span class="hljs-comment"># Red Hat</span>
+    <span class="hljs-variable">$ </span>sudo pacman -S python-matplotlib         <span class="hljs-comment"># Arch Linux</span>
+                        </code>
+                    </pre>
+
+                    <br><br>
+                    <h3 id="sources">References</h3>
+                    <p>
+                        <a href="https://www.ericr.nl/wondrous/">https://www.ericr.nl/wondrous/</a> <br>
+                        <a href="https://oeis.org/A122437">https://oeis.org/A122437</a> <br>
+                        <a href="https://youtu.be/094y1Z2wpJg">https://youtu.be/094y1Z2wpJg</a> <br>
+                        <a href="https://youtu.be/i4OTNm7bRP8">https://youtu.be/i4OTNm7bRP8</a> <br>
+                    </p>
+
+                    <br>
+                    <hr>
+                    <p><em>Written by BooleanCube :]</em></p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer-container text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Copyright © 2022 BooleanCube | <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        navActivePage();
+    });
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="../main70a.js"></script></body>
+
+</html>

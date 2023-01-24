@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"discorddb","l":"DatabaseManager"},{"p":"discorddb","l":"DatabaseObject"},{"p":"<Unnamed>","l":"DatabaseObjectTests"},{"p":"<Unnamed>","l":"ManagerTests"},{"p":"<Unnamed>","l":"TestRunner"}];updateSearchResults();

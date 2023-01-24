@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta content="BooleanCube Article #005" property="og:title" />
+  <meta content="Discover the naturally chaotic universe and how math functions and maps can also have chaotic attributes. Chaos can be found everywhere in our world!" property="og:description" />
+  <meta content="../articles/005" property="og:url" />
+  <meta content="../assets/images/articles/chaos.jpeg" property="og:image" />
+  <meta content="#4D4C7D" data-react-helmet="true" name="theme-color" />
+
+
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-icon-180x180.png">
+  <link rel="icon" href="../assets/favicon.png">
+
+  <title>Article #005</title>
+
+  <link href="../main3f6.css" rel="stylesheet">
+
+</head>
+
+<body class="">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+
+<header>
+  <nav class="navbar  navbar-fixed-top navbar-default" style="background-color: #624F82">
+    <div class="container">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav ">
+          <li><a href="./" title="">01 : Home</a></li>
+          <li><a href="./projects" title="">02 : Projects</a></li>
+          <li><a href="./articles" title="">03 : Articles</a></li>
+          <li><a href="./about" title="">04 : About me</a></li>
+          <li><a href="./socials" title="">05 : Socials</a></li>
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="section-container">
+  <div class="container">
+
+    <br><br>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="section-container-spacer text-center">
+          <h1 class="h2">Article #005: Chaos Theory</h1>
+            <h4>Published: 01/15/2023</h4>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+
+              Chaos can be found everywhere because it is a natural attribute of life. Nature tends to be chaotic in general.<br>
+              In this article, I deep dive into how mathematical maps and functions can be used to convey and measure chaos. We will try to take
+              steps towards understanding how chaos works in this universe.
+              <br><br>
+              All of the manim and matplotlib code written for the conducted research can be found in <a href="https://github.com/BooleanCube/chaos-theory">BooleanCube/chaos-theory</a>
+
+              <br><br>
+              <h3 id="logistic-map">Logistic Map</h3>
+              <p>The Logistic Map is derived from a simple mathematical recursive function: <code>x_(n+1) = r * (x_n) * (1-x_n)</code> <br>
+                In this case, I would like to take the example of a population percentage over time (years) graph to explain the logistic map.</p>
+              <ul>
+                <li>x_(n+1) represents population percentage next year (a value in the interval [0,1])</li>
+                <li>x_n represents the population percentage this year (a value in the interval [0,1])</li>
+                <li>r represents the fertility rate (a value in the interval [0,4])</li>
+              </ul>
+              <p>The very simple equation has extremely complex behaviour that becomes very chaotic (hard to predict) at high rate (r) values. <br>
+                These types of maps are often used to be able to predict population percentage or visualize repetitive chaos until the repeating window is so large that it is considered to be arbitrary.
+                When you graph out the logistic map for population percentage over time, we see that for each rate of change value (r) there is a set equilibrium value regardless of initial population percentage (x_0) which is where all randomness and chaos ceases and settles in at a particular point. So, let&#39;s explore how the equilibrium point is related to the rate of change (fertility rate) values.<br></p>
+
+              <br>
+              <h3 id="relationship-between-rate-of-change-and-equilibrium-points">Relationship between rate of change and equilibrium points</h3>
+              <ul>
+                <li>When the rate of change (fertility rate) is too low, for example less than 1.00, the equilibrium point will be 0.00 which means the species has gone extinct. <br>
+                  <img src="https://user-images.githubusercontent.com/47650058/192679432-e0909c11-4296-42e4-adfd-7a4b90e8a778.png" alt="image"></li>
+                <li>When the rate of change (fertility rate) is decently large, for example less than 3.00, the equilibrium point will be at a set value above 0.00 so the population settles in at a percentage, the equilibrium point, without going extinct. This phenomenon is common in nature, as we usually see the populations start to stabilize over time as long as there are no external events causing the population percentage to falter. In this example we can see the equilibrium point to be ~0.65.
+                  <img src="https://user-images.githubusercontent.com/47650058/192680494-2e60daf4-823d-489e-990d-7d26d9e77556.png" alt="image"></li>
+                <li>So far, the equilibrium graph seems reasonable and appropriate. However, this is where the chaos begins. When the rate of change (fertility rate) is too high, for example greater than or equal to 3.00, we start to see more than 1 equilibrium point and more arbitrary results. As the fertility rate (rate of change) increases, the chaos (randomness) also grows exponentially and splits into more equilibrium points exponentially. When the equilibrium point splits into multiple points again, we call it a bifurcation. At <code>r=3.6</code> we start to see fractal-like behaviour in the logistic map because of the amount of bifurcations. This phenomenon is also fairly common in nature, as some populations could oscillate between different percentage values over a window of time repeatedly. In this example, we can see there are 4 equilbirium points, so there must have been 3 period-doubling bifurcations in the equilibrium graph (First splits into 2, and then the 2 split into 4). <br>
+                  <img src="https://user-images.githubusercontent.com/47650058/192681721-14e85352-1874-4778-834d-04eb5a790afb.png" alt="image"></li>
+              </ul>
+
+              <br><br>
+              <h3 id="bifurcation-diagram">Bifurcation Diagram</h3>
+              <p>The Bifurcation Diagram graphically represents the behaviors observed between the rate of change and the equilibrium points as mentioned above in <a href="https://github.com/BooleanCube/chaos-theory#relationship-between-rate-of-change-and-equilibrium-points">&quot;Chaos Theory&quot;</a>
+                The figure below graphs the detailed complexity of how the rate of change affects equilibrium, in other words, how the rate of change relates to chaos.
+                We can visually see most of the periodically doubling bifurcation but after <code>r=3.6</code> it starts to get really chaotic and the equilibrium points are almost entirely random.</p>
+              <p><img src="https://user-images.githubusercontent.com/47650058/192730089-e254d51a-8ca9-44e3-a2bc-71987ef1a085.png" alt="image"></p>
+
+              <br><h3 id="feigenbaum-constant">Feigenbaum Constant</h3>
+              <p>Mitchell J. Feigenbaum observed that there was a common ratio between the widths of the periodically doubling bifurcations. Even though Feigenbaum originally related to the period-doubling bifurcations in the logistic map, it showed universality (observed as a property in large independent systems. Therefore, we can conclude that every chaotic system that fits the requirements will bifurcate at the same constant rate. <br></p>
+              <p>The feigenbaum constant is the limit as n approaches infinity of the ratio between each bifurcation interval width to the next between every period-doubling. <br></p>
+              <p><img src="https://user-images.githubusercontent.com/47650058/192737008-41bb896e-47b4-4cec-a273-e420bf95fcae.png" alt="image"> <br>
+                <img src="https://user-images.githubusercontent.com/47650058/192737182-f98e5dd0-614a-4d0d-8b9f-fb358c9f3f02.png" alt="image"></p>
+              <p>As we can see from our graphed bifurcation diagram figure above, the bifurcation intervals and the interval widths match the description in the table above and so I can conclude with my calculations that the feigenbaum constant is indeed ~4.669.</p>
+
+              <br><br>
+              <h3 id="usage">Usage</h3>
+
+              <br>
+              <h3 id="static-equilibrium-graphing-simulation">Static Equilibrium Graphing Simulation</h3>
+              <p><strong>Note:</strong> Make sure you have installed the <code>matplotlib</code> python package before running this python script. <br>
+                To start the static equilibrium graph simulation, run the following command:</p>
+              <pre><code>$ <span class="hljs-keyword">python3</span> static_equilibrium_graph.<span class="hljs-keyword">py</span>
+</code></pre><p>You will then be greeted with a prompt for input data. The script allows you to configure the variables to your choosing before visualizing the results. The prompt will look something similar to this: <br> <br>
+              <img src="https://user-images.githubusercontent.com/47650058/192431390-c1db4208-50df-43e2-94cd-884e13f16984.png" alt="image"> <br> <br>
+              After completing the input data prompts, the application will open a graph visualizer with the equilibrium graph (helps visualize the population percentage over time ratio) and a visual comparison between <code>x_(n+1)</code> and <code>x_n</code> to help explain how the population percentage may jump up and down but settle in at an equilibrium point. <br></p>
+              <p><img src="https://user-images.githubusercontent.com/47650058/192678214-ef87e041-6f97-490f-83ad-394849222006.png" width="750" alt="image"></p>
+
+              <br>
+              <h3 id="dynamic-manim-equilibrium-graph">Dynamic Manim Equilibrium Graph</h3>
+              <p><strong>Note:</strong> Make sure you have installed all <strong>REQUIRED AND OPTIONAL</strong> dependencies for manim first, and then installed the manim library itself. <br>
+                To start the dynamic manim equilibrium graph, run the following command:</p>
+              <pre><code>$ manim -<span class="hljs-selector-tag">p</span> -ql dynamic_equilibrium_graph<span class="hljs-selector-class">.py</span> DynamicEquilibriumGraph
+</code></pre><p>Similar to the Static Equilibrium Graph, this script also generates all equilibrium graphs by iterating through the interval values for the rate of change variable. <em>This equilibrium graph script is animated with manim and is not as configurable as the equilibrium graph with the matplotlib package.</em> <br> <br>
+              <img src="https://user-images.githubusercontent.com/47650058/192858595-f24223cc-452c-4779-98b6-ffdd04258c9e.gif" alt="dynamicequilibriumgraph"></p>
+
+              <br>
+              <h3 id="bifurcation-diagram2">Bifurcation Diagram</h3>
+              <p><strong>Note:</strong> Make sure you have installed all <strong>REQUIRED AND OPTIONAL</strong> dependencies for manim first, and then installed the manim library itself. <br>
+                To start the bifurcation diagram figure animation, run the following command:</p>
+              <pre><code>$ manim -<span class="hljs-selector-tag">p</span> -ql bifurcation_diagram<span class="hljs-selector-class">.py</span> BifurcationDiagram
+</code></pre><p>As described in the <a href="https://github.com/BooleanCube/chaos-theory#bifurcation-diagram">Bifurcation Diagram Analysis</a>, this is nothing more than an animation of the Bifurcation Diagram being generated. You can also see the animation without having to run the manim code: <br></p>
+              <p><img src="https://user-images.githubusercontent.com/47650058/192745066-2413253a-cf56-4e45-9079-1d97b5d27004.gif" alt="bifurcationdiagram"></p>
+              <br>
+              <h3 id="feigenbaum-constant-calculator">Feigenbaum Constant Calculator</h3>
+              <p><strong>Note:</strong> You must have any version of python3 installed on your computer. Preferably one of the more recent versions (Versions 3.7.9+)
+                To start the feigenbaum calculator, run the following command:</p>
+              <pre><code>$ <span class="hljs-keyword">python3</span> feigenbaum_calculator.<span class="hljs-keyword">py</span>
+</code></pre><p>This runs a simulation of ALL equilibrium graphs with r values that iterates every 0.00001. Such a small iteration amount makes the calculator very slow to make calculations but also makes it more precise. As described in the <a href="https://github.com/BooleanCube/chaos-theory#feigenbaum-constant">Feigenbaum Constant Analysis</a>, the calculator finds the bifurcation parameters where the number of equilibrium points double. The calculations are not entirely precise and accurate because of the rounding of the rate of change values and the bifurcation parameter values. There is no way to really calculate where the period-doubling bifurcations are, so we have to run simulations with perfect precision to observe where they appear. Here are the most precise results I could produce: <br></p>
+              <p><img src="https://user-images.githubusercontent.com/47650058/192828501-b883c4b2-8987-4a25-b9f6-91422039aebf.png" alt="image"> <br>
+                <img src="https://user-images.githubusercontent.com/47650058/192737182-f98e5dd0-614a-4d0d-8b9f-fb358c9f3f02.png" alt="image"></p>
+              <p>We can see from the calculations, the ratio that is being calculated as n approaches infinity continuously moves towards ~4.669 which is the feigenbaum constant.</p>
+
+              <br><br>
+              <h3 id="installation">Installation</h3>
+              <p><strong>REQUIREMENT:</strong> Must install <a href="https://www.python.org/downloads/release/python-379/">Python 3.7+</a> (Versions of Python under 3.7 will not work for manim) <br> <br>
+                Before we download the chaos-theory project and run it, we need to install manim, a mathematics animation tool, and a bunch of other python packages that were used for the project.<br>
+                <strong>Note:</strong> Please download all the <strong>REQUIRED AND OPTIONAL</strong> dependencies before moving on to installing manim.</p>
+
+              <br>
+              <h3 id="linux">Linux</h3>
+              <p>Follow the installation instructions on the <a href="https://docs.manim.community/en/stable/installation/linux.html">manim installation documentation page</a> to completely install manim.
+                To finally install manim after installing the dependencies and rebooting your system, run the following command in a terminal:</p>
+              <pre><code>$ pip3 <span class="hljs-keyword">install</span> manim</code></pre>
+
+              <br>
+              <h3 id="windows">Windows</h3>
+              <p>Follow the installation instructions using a package manager or installer of your choice from the <a href="https://docs.manim.community/en/stable/installation/windows.html">manim installation documentation page</a>.
+                To finally install manim after installing the dependencies, run the following command in your command prompt:</p>
+              <pre><code>$ python -m pip <span class="hljs-keyword">install</span> manim</code></pre>
+
+              <br>
+              <h3 id="macos">MacOS</h3>
+              <p>Follow the installation instructions using a package manager or installer of your choice form the <a href="https://docs.manim.community/en/stable/installation/macos.html">manim installation documentation page</a>.
+                To finally install manim after downloading the dependencies, run the following command in your terminal:</p>
+              <pre><code>$ pip3 <span class="hljs-keyword">install</span> manim</code></pre>
+
+              <br>
+              <h3 id="python-packages">Python Packages</h3>
+              <p>After installing manim successfully, we have to install some other python packages for GUI. <br>
+                Matplotlib, a graphing math utility for python, can be installed through pip just like manim and is necessary to run some parts of this application.</p>
+              <pre><code>$ pip3 <span class="hljs-keyword">install</span> matplotlib
+</code></pre><p>or</p>
+              <pre><code>$ python3 -m pip <span class="hljs-keyword">install</span> matplotlib
+</code></pre><h3 id="download-project">Download Project</h3>
+              <p>Run the following commands to downloads the project to be able to run the scripts:</p>
+              <pre><code><span class="hljs-variable">$ </span>cd /temp/directory/<span class="hljs-keyword">for</span>/project/
+<span class="hljs-variable">$ </span>git clone <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/github.com/</span>BooleanCube/chaos-theory.git
+</code></pre><p>Look at the <a href="https://github.com/BooleanCube/chaos-theory#usage">usages</a> of the project to see how to run the different scripts.</p>
+
+
+              <br><br>
+              <h3 id="credits">References</h3>
+              <p><a href="https://www.youtube.com/c/veritasium">Veritasium</a> is a channel of science and engineering videos featuring experiments, expert interviews, cool demos, and discussions with the public about everything science. <br>
+                I recently came across a very intriguing <a href="https://youtu.be/ovJcsL7vyrk">video about chaos theory</a> that they produced and was inspired to build this myself because I wanted to explore the logistic map and chaos for myself. <br>
+                <a href="https://www.reddit.com/user/streamer3222">u/streamer3222</a> reached out to me on reddit and introduced me to the henon map, which also has chaotic attributes. Their code and simulations can be found in this GitHub repository in the <code>henon_map/</code> folder. Check out their <a href="https://youtu.be/41AVIZIfVAw">visualization video</a> <br></p>
+
+              <br>
+              <h3 id="packages-used-br-">Packages Used: <br></h3>
+              <p>IEEE COMPUTER SOC. (2007). Matplotlib: A 2D graphics environment (Version 3.6.0) [Computing in Science \&amp; Engineering]. 10.1109/MCSE.2007.55 <br>
+                The Manim Community Developers. (2022). Manim – Mathematical Animation Framework (Version v0.16.0) [Computer software]. <a href="https://www.manim.community/">https://www.manim.community/</a></p>
+
+              <br>
+              <hr>
+              <p><em>Written by BooleanCube :]</em></p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer-container text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Copyright © 2022 BooleanCube | <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    navActivePage();
+  });
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="../main70a.js"></script></body>
+
+</html>
